@@ -27,9 +27,9 @@ public class PickersDemoActivity extends Fragment implements View.OnClickListene
 
     private EditText dateEditText;
     private EditText timeEditText;
-    TextView tvdate, tvtime;
+   // TextView tvdate, tvtime;
 
-    String date_value, time_value;
+   // String date_value, time_value;
 
     @Nullable
     @Override
@@ -39,8 +39,8 @@ public class PickersDemoActivity extends Fragment implements View.OnClickListene
 
         dateEditText = layout.findViewById(R.id.date_editText);
         timeEditText = layout.findViewById(R.id.time_editText);
-        tvdate = layout.findViewById(R.id.tv_date);
-        tvtime = layout.findViewById(R.id.tv_time);
+       // tvdate = layout.findViewById(R.id.tv_date);
+       // tvtime = layout.findViewById(R.id.tv_time);
 
         dateEditText.setOnClickListener((View.OnClickListener) this);
         timeEditText.setOnClickListener(this);
