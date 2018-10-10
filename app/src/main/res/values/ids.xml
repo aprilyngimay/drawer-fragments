@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="activity_picker_demo" type="id">activity_picker</item>
+    <item name="activity_toogle_demo" type="id">activity_toogle</item>
+    <item name="activity_text_field_demo" type="id">activity_text_field</item>
+</resources>

@@ -25,7 +25,6 @@ public class ToggleDemoActivity extends Fragment implements CompoundButton.OnChe
         android.view.View layout = inflater.inflate(R.layout.activity_toogle_demo, container, false);
 
 
-
         ToggleButton toggleButton = layout.findViewById(R.id.toggle_button);
         SwitchCompat toggleSwitch = layout.findViewById(R.id.toggle_switch);
 

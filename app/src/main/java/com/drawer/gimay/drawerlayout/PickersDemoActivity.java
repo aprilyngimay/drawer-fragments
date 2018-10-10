@@ -15,8 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
@@ -24,6 +27,9 @@ public class PickersDemoActivity extends Fragment implements View.OnClickListene
 
     private EditText dateEditText;
     private EditText timeEditText;
+    TextView tvdate, tvtime;
+
+    String date_value, time_value;
 
     @Nullable
     @Override
@@ -33,6 +39,8 @@ public class PickersDemoActivity extends Fragment implements View.OnClickListene
 
         dateEditText = layout.findViewById(R.id.date_editText);
         timeEditText = layout.findViewById(R.id.time_editText);
+        tvdate = layout.findViewById(R.id.tv_date);
+        tvtime = layout.findViewById(R.id.tv_time);
 
         dateEditText.setOnClickListener((View.OnClickListener) this);
         timeEditText.setOnClickListener(this);
@@ -85,6 +93,7 @@ public class PickersDemoActivity extends Fragment implements View.OnClickListene
             }
 
             Toast.makeText(getActivity(), time, Toast.LENGTH_SHORT).show();
+
         }
     }
 

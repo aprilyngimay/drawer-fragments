@@ -6,4 +6,10 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="pickerDemo">Picker Demo</string>
+    <string name="textDemo">TextField Demo</string>
+    <string name="toggleDemo">Toggle Demo</string>
+    <string name="tv_date">Display Date</string>
+    <string name="tv_time">Display Time</string>
 </resources>

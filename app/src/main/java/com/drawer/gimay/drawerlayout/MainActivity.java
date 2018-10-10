@@ -3,6 +3,7 @@ package com.drawer.gimay.drawerlayout;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -18,9 +19,9 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
-    private PickersDemoActivity pickerFragment = new PickersDemoActivity();
-    private TextFieldDemoActivity textFieldFragment = new TextFieldDemoActivity();
-    private ToggleDemoActivity toggleFragment = new ToggleDemoActivity();
+    private PickersDemoActivity pickerDemo = new PickersDemoActivity();
+    private TextFieldDemoActivity textDemo = new TextFieldDemoActivity();
+    private ToggleDemoActivity toggleDemo = new ToggleDemoActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -38,12 +39,19 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        navigationView.setCheckedItem(R.id.edit_message);
-        onNavigationItemSelected(navigationView.getMenu().getItem(0));
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, new PickersDemoActivity());
+        fragmentTransaction.commit();
+
+        navigationView.setCheckedItem(R.id.activity_picker_demo);
+
+
     }
 
     @Override
     public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -81,20 +89,20 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         switch (id){
-            case R.id.date_editText:
-                transaction.replace(R.id.fragment_container, pickerFragment);
+            case R.id.pickerDemo:
+                transaction.replace(R.id.fragment_container, pickerDemo);
                 transaction.commit();
                 break;
-            case R.id.edit_message:
-                transaction.replace(R.id.fragment_container, textFieldFragment);
+            case R.id.textDemo:
+                transaction.replace(R.id.fragment_container, textDemo);
                 transaction.commit();
                 break;
-            case R.id.toggle_button:
-                transaction.replace(R.id.fragment_container, toggleFragment);
+            case R.id.toggleDemo:
+                transaction.replace(R.id.fragment_container, toggleDemo);
                 transaction.commit();
                 break;
         }
-
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
